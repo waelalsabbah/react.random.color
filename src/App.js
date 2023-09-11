@@ -3,7 +3,7 @@ import { useState } from 'react';
 
 export default function App() {
   const Initialcolor = randomColor();
-  const [color, setColor] = useState('#999');
+  const [color, setColor] = useState('Generated Color');
   return (
     <>
       <h1> Random Color Generator</h1>;
@@ -12,9 +12,14 @@ export default function App() {
         {color}
       </div>
       <br />
-      <input />
-      <br />
-      <button onClick={() => setColor('#fff')}>Generate</button>
+      <button
+        onClick={() => {
+          const newColor = randomColor();
+          setColor(newColor);
+        }}
+      >
+        Generate
+      </button>
     </>
   );
 }
